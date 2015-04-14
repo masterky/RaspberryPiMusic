@@ -5,8 +5,13 @@
 # 
 #############################
 
+from thread import start_new_thread
 
+# My Imports
 from time import sleep
+from MyMusic import MyMusic
+import Data
+
 
 try:
 	import RPi.GPIO as GPIO
@@ -20,13 +25,18 @@ class Observer(object):
 	THRESHOLD = 0.01
 
 	def __init__(self):
-		pass
+		self.myMusic = MyMusic(Data.MUSIC_PATH)
+		self.pushButton = Button(2, self)
+
 	def nofity(self, action, port):
 		if action == self.BUTTON_PUSHED:
 			# do stuff
 			print "button pushed"
 			pass
 	def observe(self):
+
+		start_new_thread(self.myMusic.shuffle,())
+
 		while 1:
 			sleep(self.THRESHOLD)
 
