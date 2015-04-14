@@ -23,6 +23,7 @@ class Oberserver(object):
 	def nofity(self, action, port):
 		if action == self.BUTTON_PUSHED:
 			# do stuff
+			print "button pushed"
 			pass
 
 
@@ -44,7 +45,6 @@ class Button(object):
 	def waitForPush(self):
 		while not self.stopFlag:
 			if GPIO.input(self.port) == GPIO.HIGH:
-				print "Button bushed"
 				observer.notify(observer.BUTTON_PUSHED, self.port)
 			else:
 				print "idleling...."
