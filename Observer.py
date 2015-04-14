@@ -13,10 +13,11 @@ try:
 except Exception, e:
 	print "No Raspberry Pi lib installed"
 
-class Oberserver(object):
+class Observer(object):
 
 	# Actions
 	BUTTON_PUSHED = 0
+	THRESHOLD = 0.01
 
 	def __init__(self):
 		pass
@@ -25,6 +26,10 @@ class Oberserver(object):
 			# do stuff
 			print "button pushed"
 			pass
+	def observe(self):
+		while 1:
+			sleep(self.THRESHOLD)
+
 
 
 class Button(object):
