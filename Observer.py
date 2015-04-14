@@ -26,7 +26,7 @@ class Observer(object):
 
 	def __init__(self):
 		self.myMusic = MyMusic(Data.MUSIC_PATH)
-		self.pushButton = Button(2, self)
+		self.pushButton = Button(7, self)
 
 	def nofity(self, action, port):
 		if action == self.BUTTON_PUSHED:
