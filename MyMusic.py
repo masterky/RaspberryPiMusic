@@ -24,7 +24,7 @@ class MyMusic(object):
 
 	def __init__(self, path):
 		pygame.mixer.pre_init(frequency=44100, size=-16, channels=2)
-		#pygame.mixer.init()
+		pygame.mixer.init()
 		pygame.mixer.fadeout(500)
 		self.files = [join(path,f) for f in listdir(path) if isfile(join(path,f)) ]
 
